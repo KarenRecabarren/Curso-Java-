@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <title> Ventas </title>
+    <script type="text/javascript">
+    
+                
+
+
+         function contar() 
+                    {
+                    var eliminar=confirm ("Desea eliminar la venta")
+                    if (eliminar) {
+                        alert ("Venta eliminada con exito");
+                    }
+            }
+    
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaventas').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'
+            }
+        });
+    });
+
+</script>
+
+
+</head>
+
+   
+
+<body>
+    
+    <form id="eliminarventa" method="post" action="#">
+
+        <table border="1" id="tablaventas" class="display" style="width:100%">
+            <thead>
+            <tr>
+        
+                <th>ID Venta</th>
+                <th>Nombre del vendedor</th>
+                <th>Subtotal</th>
+                <th>Impuesto</th>
+                <th>Total Ventas</th>
+                <th>Eliminar Ventas</th>
+                <th>Agregar Productos</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <tr>
+                <td>1</td>
+                <td>Andrea Mella</td>
+                <td>35.000</td>
+                <td>2.000</td>
+                <td id="chk1">37.000</td>
+                <td><input type="image" value="Eliminar Venta" width="30px" src="eliminar.ico" alt="" id="botoneli1" onclick= "contar()">
+                <td><input  type="image" width="30px" src="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_113919.ico" alt=""></td>
+            
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Fernanda Campos</td>
+                <td>10.000</td>
+                <td>1.000</td>
+                <td id="chk2">11.000</td>
+                <td><input type="image" value="Eliminar Venta" width="30px" src="eliminar.ico" alt="" id="botoneli2" onclick= "contar()"> 
+                <td><input type="image"  width="30px" src="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_113919.ico" alt=""></td>
+                
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Elizabeth Marin</td>
+                <td>10.000</td>
+                <td>1.000</td>
+                <td id="chk3">11.000</td>
+                <td><input type="image" value="Eliminar Venta" width="30px" src="eliminar.ico" alt=""  id="botoneli3" onclick= "contar()">
+                <td><input type="image" width="30px" src="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_113919.ico" alt=""></td>
+                
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Tanya Jara</td>
+                <td>5.000</td>
+                <td>500</td>
+                <td id="chk4">5.500</td>
+                <td><input type="image" value="Eliminar Venta"width="30px" src="eliminar.ico" alt=""  id="botoneli4" onclick= "contar()">
+                <td><input type="image" width="30px" src="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_113919.ico" alt=""></td>
+                
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Angelica Vergara</td>
+                <td>30.000</td>
+                <td>3.000</td>
+                <td id="chk5">33.000</td>
+                <td><input type="image" value="Eliminar Venta" width="30px" src="eliminar.ico" alt=""  id="botoneli5" onclick= "contar()">
+                <td><input type="image" width="30px" src="4105931-add-to-cart-buy-cart-sell-shop-shopping-cart_113919.ico" alt=""></td>
+                
+            </tr>
+            </tbody>
+       
+            </table>
+
+   
+        
+         </form>
+
+        
+
+</body>
+
+</html>

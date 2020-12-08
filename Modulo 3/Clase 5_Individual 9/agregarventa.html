@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Venta</title>
+
+    <style>
+
+        body{
+        
+        background: #ef32d9;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        
+        /* background-color: aqua; */
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;;
+        color:whitesmoke;
+        
+        }
+        
+        h1{
+        font-size: 60px;
+        text-align: center;
+        text-decoration: dotted;
+        color:whitesmoke;
+        
+        }
+        
+        h2{
+        font-size: 50px;
+        text-align: center;
+        text-decoration: dotted;
+        color:whitesmoke;
+        
+        }
+        
+        h3{
+        font-size: 40px;
+        text-align: center;
+        text-decoration: dotted;
+        color:whitesmoke;
+        
+        }
+        
+        h4{
+        font-size: 30px;
+        text-align: center;
+        text-decoration: dotted;
+        color:whitesmoke;
+        
+        }
+        .claseparrafo{
+        border: solid 1px blue ;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 10px;
+        background-color: darkgreen;
+        color: #ccc;
+        
+        }
+        
+        #elemento{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        color:whitesmoke;
+        background-color: darkgrey;
+        
+        }
+        
+        @media only screen and (max-width: 768px) {
+            /* Para Celular */
+            [class*="col-"] {
+              width: 100%;
+            }
+        }
+        
+        @media only screen and (min-width: 600px) {
+            /* Para Tabletas */
+            .col-s-1 {width: 8.33%;}
+            .col-s-2 {width: 16.66%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33.33%;}
+            .col-s-5 {width: 41.66%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58.33%;}
+            .col-s-8 {width: 66.66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83.33%;}
+            .col-s-11 {width: 91.66%;}
+            .col-s-12 {width: 100%;}
+          }
+          @media only screen and (min-width: 768px) {
+            /* Para PC */
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+          }
+          
+        </style> 
+
+    <script>
+        function validar(){
+
+            var errores = "";
+
+            var id = document.getElementById("txtid").value;
+            var vendedor = document.getElementById("txtnomvendedor").value;
+            var cantidad = document.getElementById("txtcantidad").value;
+
+            if (id == null || vendedor == null || cantidad == null || id.length == 0 
+            || vendedor.length == 0 || cantidad.length == 0){
+                errores += "Alguno de los campos no tiene datos<br/>";
+            }
+
+            if (isNaN(id)){
+                errores += "El identificador no es un número<br/>";
+            }
+            else{
+                var idnum = parseInt(id);
+                if (idnum <= 0 || idnum > 1000){
+                    errores += "El identificador no está dentro del rango esperado<br/>";
+                }
+            }
+
+            if (vendedor.length > 50){
+                errores += "El nombre del vendedor tiene más de 50 caracteres<br/>";
+            }
+
+            if (isNaN(cantidad)){
+                errores += "La cantidad no es un número<br/>";
+            }
+            else{
+                var cantidadnum = parseInt(cantidad);
+                if (cantidadnum <= 0 || cantidadnum > 1000){
+                    errores += "La cantidad de artículos no está dentro del rango esperado<br/>";
+                }
+            }
+
+            if (errores == null || errores == "" || errores.length == 0){
+                errores = "Validación exitosa";
+            }
+
+            var divmensaje = document.getElementById("mensaje");
+            divmensaje.innerHTML = errores;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Agregar Venta</h1>
+
+    <div id="mensaje"></div>
+
+    <form>
+        <table>
+            <tr>
+                <th>ID de venta: </th>
+                <td><input type="text" name="txtid" id="txtid"></td>
+            </tr>
+            <tr>
+                <th>Nombre de vendedor: </th>
+                <td><input type="text" name="txtnomvendedor" id="txtnomvendedor"></td>
+            </tr>
+            <tr>
+                <th>Cantidad de artículos: </th>
+                <td><input type="text" name="txtcantidad" id="txtcantidad"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="validar();" name="btnprocesar" id="btnprocesar" value="Validar formulario"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
+
+
+</head>
+<body>
+    
+</body>
+</html>

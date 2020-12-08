@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Detalle de Venta</title> 
+    <script type="text/javascript" src="js de agregardetalle.js" > </script>    
+    
+    
+</head>
+    <body>
+        <header>
+            <h4>Detalle de Venta</h4> <br>
+            <form id="detalledeventa" method="post" action="#"></form>
+        </header>   
+
+            <div class="row">
+            <main class="col-6 col-s-12 main">
+                    
+           
+                    
+            <form id="form1" name="form1" method="POST" action="">
+                <table>
+                    <tr>
+                        <td>Venta:</td>
+                        <td><input type="text" name="textventa" id="textventa" placeholder=" id venta"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Producto</td>
+                        <td>
+                            <select name="producto" id="producto">
+                                <option selected value="elige">Elige Un Producto</option>
+                                <option >Jabón Carbón Activado</option>
+                                <option >Jabón Celulitis</option>
+                                <option >Jabón Dermatológico</option>
+                                <option >Jabón Anti Manchas</option>
+                                <option >Jabón Regenerante Humectante</option>
+                                <option >Aceite de Zanahoria</option>
+                                <option >Aceite Bronceador</option>
+                                <option >Aceite Anti estrías</option>
+                                <option >Serum Anti Manchas</option>
+                                <option >Bombas Efervescentes</option>
+                            </select> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cantidad:</td>
+                        <td><input type="text" name="txtcantidad" id="txtcantidad" placeholder=" n° de productos"></td>
+                    </tr>
+
+                    <td style="text-align: center;"><input type="button" onclick="contar();" value="Procesar" id="proc"></td>
+                        
+                </table>
+            </form>
+
+            <div>
+                <h4>Productos y cantidad vendidos</h4>
+                <ul id="demo"></ul>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://resources/demos/style.css">
+    <title>Listado Categorias</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+        $(function () {
+            $("#resizable").resizable();
+        });
+
+        $(function () {
+            $("#accordion").accordion({
+                collapsible: true
+            });
+        });
+
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            $("#opener").on("click", function () {
+                $("#dialog").dialog("open");
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <textarea id="resizable" class="ui-widget-header">Escriba lo que piensa...</textarea>
+    </div>
+
+    <div id="accordion">
+        <h3>Maquillaje de Calle</h3>
+        <div>
+            <p>El maquillaje de calle es aquel estilo que utilizamos todos los días y que generalmente incluye una base ligera, máscara, rubor y labial. Para este tipo de maquillaje puedes utilizar cualquier clase de productos, mientras los mismos sean de calidad y adecuados tanto para tu tipo como para tu tono de piel.</p>
+        </div>
+        <h3>Maquillaje Teatral</h3>
+        <div>
+            <p>El maquillaje teatral se utilizan otros productos, ya que deben ser muy pigmentados y duraderos para soportar varias horas, y se utiliza para exagerar las expresiones faciales de los actores. </p>
+        </div>
+        <h3>Maquillaje para Fotografía</h3>
+        <div>
+            <p>Sigue el mismo estilo del maquillaje normal, solo que utiliza productos especiales para resaltar bajo el flash de la cámara. Es el maquillaje de las sesiones fotográficas. </p>
+            
+        </div>
+        <h3>Maquillaje normal o rectificado</h3>
+        <div>
+            <p>Este tipo de maquillaje es el que se utiliza en el caso de vídeos o películas, que exige productos que dejen un acabado natural de gran precisión. Ello ocurre debido a que la pantalla magnifica los defectos de la piel y se debe tener un color duradero y consistente. </p>
+            <p>En el maquillaje correctivo sirve para ocultar defectos o minimizar zonas que no nos gustan del rostro. ¡El que todas queremos! </p>
+        </div>
+    </div>
+    <br>
+
+    <div id="dialog" title="Basic dialog">
+        <p>Las tendencias de 2020 marcan un protagonismo indiscutible del maquillaje de ojos frente a los labios. Las sombras ahumadas, en tonos tierra o tejas serán protagonistas indiscutibles durante los próximos meses y nos permiten crear un look favorecedor, pero a la vez sencillo y discreto.</p>
+      </div>
+
+      <button id="opener">Open Dialog</button>
+
+
+    
+</body>
+</html>

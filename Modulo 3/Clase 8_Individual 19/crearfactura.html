@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Crear Factura</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        input.error,
+        select.error,
+        textarea.error {
+            border: 3px solid red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#formfactura").validate({
+                rules: {
+                    txtidfact: {required: true,digits: true, min: 1, max: 10000},
+                    txtidventa: {required: true, digits: true,min: 1,max: 1000},
+                    txtfechagen:{required: true},
+                    txtfechapago:{required: true},
+                    txtsubtotal:{required: true},
+                    txtimpuesto:{required: true},
+                    txttotal:{required: true},
+                },
+                messages: {
+                    txtidfact: {
+                        required: "Ingrese el ID de factura",
+                        digits: "debes ingresar numeros no letras",
+                        min: "Debe ser un número mayor o igual a 1",
+                        max: "Debe ser un número menor a 10000"
+                    },
+                    txtidventa: {
+                        required: "Ingrese el ID de venta",
+                        digits: "debes ingresar numeros no letras",
+                        min: "Debe ser un número mayor o igual a 1",
+                        max: "Debe ser un número menor a 1000"
+                    },
+                    txtfechagen: {
+                        required: "Debe indicar una fecha de generación"
+                    }
+                }
+		    });
+
+            $("#txtfechagen").datepicker(
+                {dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true}
+            );
+
+            $("#txtfechapago").datepicker(
+                {dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true}
+            );
+
+
+
+        });
+    </script>
+
+</head>
+<body>
+<div id="prueba" class="factura">
+    <h1>Crear factura</h1>
+
+    <form id="formfactura" method="get" action="">
+        ID Factura:<br/> <input type="text" name="txtidfact" id="txtidfact" /><br/>
+        ID Venta:<br/> <input type="text" name="txtidventa" id="txtidventa" /><br/>
+        Fecha generación: <br/><input type="text" name="txtfechagen" id="txtfechagen" readonly /><br/>
+        Fecha pago: <br/><input type="text" name="txtfechapago" id="txtfechapago" readonly /><br/>
+        Subtotal: <br/><input type="number" name="txtsubtotal" id="txtsubtotal"/><br/>
+        Impuesto: <br/><input type="text" name="txtimpuesto" id="txtimpuesto" readonly /><br/>
+        Total: <br/><input type="text" name="txttotal" id="txttotal" readonly /><br/>
+        <input type="submit" value="Validar">
+        <input type="button" value="Calcular" onclick="sumarcampos();">
+    </form>
+
+
+
+</div>
+<script>
+    function sumarcampos(){
+        var subtototal = parseInt(document.getElementById("txtsubtotal").value);
+        document.getElementById("txtimpuesto").value = subtototal*0.1;
+        var subto = subtototal*0.1
+        document.getElementById("txttotal").value = subto + subtototal;
+    }
+</script>
+</body>
+</html>
